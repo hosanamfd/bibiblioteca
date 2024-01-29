@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic Equation Solver</title>
+</head>
+<body>
+    <h1>calculadora de equação quadratica</h1>
+
+    <label for="inputA">coloque o valor de a: </label>
+    <input type="number" id="inputA" placeholder="Enter a">
+
+    <label for="inputB">coloque o valor de b: </label>
+    <input type="number" id="inputB" placeholder="Enter b">
+
+    <label for="inputC">coloque o valor de c: </label>
+    <input type="number" id="inputC" placeholder="Enter c">
+
+    <button onclick="solveEquation()">Solve</button>
+
+    <h2>Results:</h2>
+    <p id="result1"></p>
+    <p id="result2"></p>
+
+    <script>
+        function solveEquation() {
+            let a = parseFloat(document.getElementById("inputA").value);
+            let b = parseFloat(document.getElementById("inputB").value);
+            let c = parseFloat(document.getElementById("inputC").value);
+
+            let delta = b**2 - 4*a*c;
+
+            if (delta < 0) {
+                alert("The equation has irrational roots.");
+                return;
+            }
+
+            let result1 = (-b + Math.sqrt(delta)) / (2 * a);
+            let result2 = (-b - Math.sqrt(delta)) / (2 * a);
+
+            document.getElementById("result1").innerText = "Raiz 1: " + result1;
+            document.getElementById("result2").innerText = "Raiz  2: " + result2;
+        }
+    </script>
+</body>
+</html>
